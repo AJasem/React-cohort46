@@ -2,11 +2,11 @@
 import React, { useState } from "react";
 import "./App.css";
 
-import Products from "./component/Products";
-import Categories from "./component/Categories";
+import Products from "./components/Products";
+import Categories from "./components/Categories";
 
 function App() {
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   return (
     <div className="App">

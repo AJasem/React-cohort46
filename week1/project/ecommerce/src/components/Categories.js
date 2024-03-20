@@ -1,8 +1,16 @@
 import React from "react";
-import CategoryItem from "./Category-Item.js";
+import CategoryItem from "./CategoryItem.js";
 import allCategories from "../fake-data/all-categories.js";
 
 const Categories = ({ onCategorySelect, selectedCategory }) => {
+  const handleCategoryClick = (category) => {
+    if (category === selectedCategory) {
+      onCategorySelect("");
+    } else {
+      onCategorySelect(category);
+    }
+  };
+
   return (
     <nav>
       <ul className="categories">
@@ -10,8 +18,8 @@ const Categories = ({ onCategorySelect, selectedCategory }) => {
           <CategoryItem
             key={category}
             category={category}
-            onClick={() => onCategorySelect(category)}
             isActive={category === selectedCategory}
+            onClick={() => handleCategoryClick(category)}
           />
         ))}
       </ul>
