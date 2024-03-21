@@ -42,27 +42,25 @@
  position: relative;
   justify-content: center;
   width: 300px;
+  height: 400px;
   cursor: pointer;
   transition: all 0.3s ease;
 
 }
-.product-item > h5{
-  text-wrap: wrap;
-  font-size: 10px;
 
-
-}
 .product-item:hover{
   transform: scale(1.01);
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
-.product-item > img{
+.product-img{
   width: 200px;
   height: 200px;
   object-fit:contain;
   margin-bottom: 10px;
 }
-
+.product-h5 {
+  font-size: 10px;
+}
 
 .category-item.active{
   background-color: #000;
@@ -86,6 +84,7 @@
   transform: scale(1.05);
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
+
 .categories{
   display: flex;
   flex-direction: row;
