@@ -4,19 +4,24 @@ import CategoryItem from "./CategoryItem.js";
 
 const Categories = ({ selectedCategory, onCategorySelect }) => {
   const [categories, setCategories] = useState([]);
-
-  const fetchCategories = async () => {
-    const response = await fetch(
-      "https://fakestoreapi.com/products/categories"
-    );
-    const data = await response.json();
-
-    setCategories(data);
-  };
-
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
+    const fetchCategories = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch(
+          "https://fakestoreapi.com/products/categories"
+        );
+        const data = await response.json();
+        if (response.ok) {
+          setCategories(data);
+          setLoading(false);
+        }
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
     fetchCategories();
-    return () => {};
   }, []);
   const handleCategoryClick = (category) => {
     if (category === selectedCategory) {
@@ -26,7 +31,7 @@ const Categories = ({ selectedCategory, onCategorySelect }) => {
     }
   };
 
-  if (!categories) return <div>Loading...</div>;
+  if (loading) return <div>Loading...</div>;
   return (
     <nav>
       <ul className="categories">
