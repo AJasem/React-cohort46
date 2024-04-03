@@ -9,11 +9,14 @@ function Home() {
     <div className="home">
       <div className="navbar">
         <h1>Products</h1>
+      </div>
+      <div>
         <Categories
           selectedCategory={selectedCategory}
           onCategorySelect={setSelectedCategory}
         />
       </div>
+
       <Products selectedCategory={selectedCategory} />
     </div>
   );

@@ -5,6 +5,7 @@ import ProductItem from "./ProductItem";
 const Products = ({ selectedCategory }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -16,6 +17,8 @@ const Products = ({ selectedCategory }) => {
         setLoading(false);
       } catch (error) {
         console.log("error", error);
+        setLoading(false);
+        setError(true);
       }
     };
     const filteredProducts = async () => {
@@ -29,6 +32,8 @@ const Products = ({ selectedCategory }) => {
         setLoading(false);
       } catch (error) {
         console.log("error", error);
+        setLoading(false);
+        setError(true);
       }
     };
 
@@ -40,12 +45,13 @@ const Products = ({ selectedCategory }) => {
   }, [selectedCategory]);
 
   if (loading) return <div>Loading...</div>;
+  if (error) return <div>Something went wrong. Please try again later.</div>;
   if (!products || products.length === 0) return <div>No products found.</div>;
 
   return (
     <div className="products">
       {products.map((product) => (
-        <ProductItem product={product} />
+        <ProductItem product={product} key={product.id} />
       ))}
     </div>
   );

@@ -6,7 +6,7 @@ const CategoryItem = (props) => {
   const classes = `category-item ${props.isActive ? "active" : ""}`;
 
   return (
-    <li className={classes} onClick={props.onClick}>
+    <li className={classes} onClick={props.onClick} key={props.id}>
       {categoryName}
     </li>
   );
