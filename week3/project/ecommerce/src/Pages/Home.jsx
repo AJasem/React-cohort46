@@ -8,14 +8,17 @@ function Home() {
   const [selectedCategory, setSelectedCategory] = useState("");
   return (
     <div className="home">
-      <div className="navbar">
-      <Navbar />
-        <h1>Products</h1>
+    
+        
+        <Navbar/>
+       
+        <div>
         <Categories
           selectedCategory={selectedCategory}
           onCategorySelect={setSelectedCategory}
         />
-      </div>
+        </div>
+      
       <Products selectedCategory={selectedCategory} />
     </div>
   );

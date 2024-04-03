@@ -5,6 +5,7 @@ import CategoryItem from "./CategoryItem.jsx";
 const Categories = ({ selectedCategory, onCategorySelect }) => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   useEffect(() => {
     const fetchCategories = async () => {
       setLoading(true);
@@ -19,6 +20,8 @@ const Categories = ({ selectedCategory, onCategorySelect }) => {
         }
       } catch (error) {
         console.log("error", error);
+        setLoading(false);
+        setError(true);
       }
     };
     fetchCategories();
@@ -32,9 +35,10 @@ const Categories = ({ selectedCategory, onCategorySelect }) => {
   };
 
   if (loading) return <div>Loading...</div>;
+  if (error) return <div>Something went wrong!. Please try again later.</div>;
   return (
-    <nav>
-      <ul className="categories">
+    <nav className="categories">
+      <ul className="category-list">
         {categories.map((category) => (
           <CategoryItem
             key={category}

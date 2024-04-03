@@ -6,16 +6,26 @@ const FavoritesPage = () => {
   const { favorites } = useFavorites();
 
  
-if(favorites.length == 0 ) return <div className='favorites'>
-  You have not picked any favorites yet.</div>
-  ;
-  
+if(favorites.length == 0 ) return (
+  <>
+
+ 
+  <Navbar/>
+ 
+  <div className='favorites'>
+  You have not picked any favorites yet.
+  </div>
+</>
+);
+ 
+
   return (
     <div>
-    <div className="favorites">
-    <Navbar />
     
-      <h2>Favorites</h2>
+       
+        <Navbar/>
+        
+    <div className="favorites">
       <div className="favorites-list">
         {favorites.map(productId => (
          

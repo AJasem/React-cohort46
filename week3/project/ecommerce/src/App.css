@@ -10,8 +10,7 @@ body{
   
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+ 
   background-color: #f0f0f0;
   color: #000;
   margin: auto;
@@ -19,15 +18,7 @@ body{
   position: relative;
 
 }
-.top-navbar{
- 
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  color: #000;
-  
-}
+
 
 
 .favorites{
@@ -77,15 +68,32 @@ body{
   
 }
 .navbar{
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+justify-content: center;
+align-items: center;
+background-color: #d2d8e4;
+}
+.header{
+  padding: 10px;
+}
+.top-navbar{
+  padding: 10px;
   width: 100%;
+ float: right;
+}
+.top-nav-ul{
+  list-style-type: none;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 5px;
-  background-color: #d2d8e4;
-  color: #000;
 
+  float: right;
+}
+.top-nav-ul li{
+  margin: 10px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 .products{
   display: flex;
@@ -155,33 +163,16 @@ body{
 .categories{
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-
-}
-
-@media screen and (max-width: 768px){
+  margin: auto;
+  background-color: #d2d8e4;
   
-  .navbar{
+  }
+  .category-list{
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 5px;
-    background-color: #d2d8e4;
-    color: #000;
+    flex-direction: row;
+    
+    margin: 10px;
+    padding: 10px;
+    transition: all 0.3s ease;
   
   }
-  .categories{
-    display: grid;
-   grid-template-columns: repeat(2, 130px);
-    justify-content: center;
-    align-items: center;
-   
-  
-  }
-  
-
-  
-}
