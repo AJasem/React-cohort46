@@ -8,7 +8,7 @@ const ProductItem = ({ product }) => {
   const isFavorite = favorites.includes(product.id);
 
   return (
-    <div className="product-item">
+    <div className="product-item" key={product.id}>
       <Link to={`/product/${product.id}`}>
         <img className="product-img" src={product.image} alt={product.title} />
         <h5 className="product-h5">{product.title}</h5>
