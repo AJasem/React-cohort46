@@ -15,15 +15,13 @@ const ProductDetail = () => {
       const response = await fetch(`https://fakestoreapi.com/products/${id}`);
       const data = await response.json();
       if (response.ok) {
-        setLoading(false);
         setProduct(data);
-        
       }
-      
     } catch (error) {
       console.log("error", error);
-      setLoading(false);
       setError(true);
+    } finally {
+      setLoading(false);
     }
   }
     fetchProduct();

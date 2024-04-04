@@ -20,11 +20,11 @@ const FavoritesPage = () => {
           })
         );
         setFavoriteProducts(products);
-        setLoading(false);
       } catch (error) {
         console.log("error", error);
-        setLoading(false);
         setError(true);
+      } finally {
+        setLoading(false);
       }
     };
     fetchFavoriteProducts();

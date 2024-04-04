@@ -16,12 +16,12 @@ const Categories = ({ selectedCategory, onCategorySelect }) => {
         const data = await response.json();
         if (response.ok) {
           setCategories(data);
-          setLoading(false);
         }
       } catch (error) {
         console.log("error", error);
-        setLoading(false);
         setError(true);
+      } finally {
+        setLoading(false);
       }
     };
     fetchCategories();
