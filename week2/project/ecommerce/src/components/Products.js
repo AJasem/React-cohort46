@@ -14,11 +14,11 @@ const Products = ({ selectedCategory }) => {
         const response = await fetch(`https://fakestoreapi.com/products`);
         const data = await response.json();
         setProducts(data);
-        setLoading(false);
       } catch (error) {
         console.log("error", error);
-        setLoading(false);
         setError(true);
+      } finally {
+        setLoading(false);
       }
     };
     const filteredProducts = async () => {
